@@ -1,6 +1,25 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from '@/components/Navbar';
+import { Montserrat, Noto_Sans, Raleway } from "next/font/google";
+import Navbar from '@/components/navbar';
+
+const raleway = Raleway({
+  weight: ["300", "400", "600"],
+  variable: "--font-raleway",
+  subsets: ["latin"],
+})
+
+const montserrat = Montserrat({
+  weight: ["300", "400", "600"],
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+});
+
+const noto_sans = Noto_Sans({
+  weight: ["600"],
+  variable: "--font-noto-sans",
+  subsets: ["latin"],
+})
 
 export const metadata: Metadata = {
   title: "I2IC - VIIT",
@@ -15,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased`}
+        className={`${montserrat.variable} ${raleway.variable} ${noto_sans.variable} antialiased`}
       >
         <Navbar/>
         {children}

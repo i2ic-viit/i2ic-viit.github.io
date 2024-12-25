@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { useIsMobile } from "@/hooks/use-mobile";
 import {
     Sheet,
@@ -14,42 +13,20 @@ import {
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 
-import i2icLogo from "@/public/i2ic-logo.png";
-import viLogo from "@/public/vi-logo.png";
-
-const navigationLinks = [
-    { text: "About Us", href: "/about" },
-    { text: "Events", href: "/events" },
-    { text: "Placement", href: "/placement" },
-    { text: "Upcoming Drives", href: "/upcoming-drives", important: true },
-];
+import Logo from "./logo";
+import { navigationLinks } from "@/data/navigation";
 
 const Navbar = () => {
     const isMobile = useIsMobile();
 
     return (
-        <div className="border-b bg-background/60 sticky top-0 backdrop-blur-md">
+        <div className="border-b bg-secondary sticky top-0 z-40">
             <div className="flex h-16 items-center px-4">
                 <Link
                     href="/"
                     className="mr-4 flex items-center font-noto-sans font-bold text-2xl lg:text-3xl"
                 >
-                    <Image
-                        src={viLogo}
-                        alt="Logo"
-                        className="mr-2"
-                        width={32}
-                        height={48}
-                        priority
-                    />
-                    <Image
-                        src={i2icLogo}
-                        alt="Logo"
-                        className="mr-2"
-                        width={48}
-                        height={48}
-                        priority
-                    />
+                    <Logo/>
                     I2IC
                 </Link>
                 {isMobile ? (
@@ -64,7 +41,7 @@ const Navbar = () => {
                             className="w-full max-w-xs sm:w-64"
                         >
                             <SheetHeader>
-                                <SheetTitle>I2IC</SheetTitle>
+                                <SheetTitle className="font-noto-sans"><Logo/><br/>I2IC</SheetTitle>
                                 <SheetDescription className="">
                                     Navigate through the site.
                                 </SheetDescription>

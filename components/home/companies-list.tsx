@@ -24,7 +24,7 @@ export default function InfiniteLogoSlider() {
       <h2 className="text-3xl font-bold mb-6">Our Recruiters</h2>
 
       {/* Logo Slider */}
-      <div className="relative flex overflow-hidden">
+      <div className="relative flex w-auto">
         {/* First Animation Layer */}
         <div className="flex animate-marquee whitespace-nowrap">
           {companies.map((company) => (
@@ -37,7 +37,7 @@ export default function InfiniteLogoSlider() {
                 alt={`${company.name} logo`}
                 width={250}
                 height={200}
-                className="max-h-20 w-auto"
+                className="max-h-20 w-auto h-20"
               />
             </div>
           ))}
@@ -46,7 +46,7 @@ export default function InfiniteLogoSlider() {
         <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap">
           {companies.map((company) => (
             <div
-              key={company.name}
+              key={`${company.name}-2`}
               className="mx-4 transition-transform transform hover:scale-110"
             >
               <Image
@@ -54,7 +54,7 @@ export default function InfiniteLogoSlider() {
                 alt={`${company.name} logo`}
                 width={250}
                 height={200}
-                className="max-h-20 w-auto"
+                className="max-h-20 w-auto h-20"
               />
             </div>
           ))}

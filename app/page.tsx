@@ -7,11 +7,11 @@ import FacultySection from "@/components/home/faculty-section";
 export default function Home() {
   return (
     <div>
-      <EventsSlider />
-      <CompanyLogoSlider />
       <HeroSection/>
       <FeaturesGrid/>
+      <EventsSlider />
       <FacultySection/>
+      <CompanyLogoSlider />
     </div> 
   );
 }

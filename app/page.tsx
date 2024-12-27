@@ -1,17 +1,20 @@
-import CompanyLogoSlider from "@/components/home/companies-list";
+import CompanySection from "@/components/home/companies-list";
 import { EventsSlider } from "@/components/home/events-slider"
-import HeroSection from "@/components/home/hero";
+// import HeroSection from "@/components/home/hero";
+import CommitteeSection from "@/components/home/committee-section";
 import FeaturesGrid from "@/components/home/features";
 import FacultySection from "@/components/home/faculty-section";
+import LampHero from "@/components/ui/lamp";
 
 export default function Home() {
   return (
     <div>
-      <HeroSection/>
+      <LampHero/>
       <FeaturesGrid/>
       <EventsSlider />
       <FacultySection/>
-      <CompanyLogoSlider />
+      <CommitteeSection/>
+      <CompanySection/>
     </div> 
   );
 }

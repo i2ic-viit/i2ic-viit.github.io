@@ -1,65 +1,94 @@
 'use client';
 
-import React from 'react';
-import Image from 'next/image';
+import { useState, useEffect, useRef } from "react"; 
+import { Card } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/carousel"
+import Image from "next/image"
+import { cn } from "@/lib/utils"
+import Autoplay from "embla-carousel-autoplay"
+import { companies } from "@/data/companies";
 
-const companies = [
-  { name: 'Accenture', logo: '/companies/amazon.svg' }, 
-  { name: 'Atlas Copco', logo: '/companies/atlas-copco.svg' },
-  { name: 'BMW', logo: '/companies/bmw.svg' },
-  { name: 'Oracle', logo: '/companies/accenture.svg' },
-  { name: 'forbes Marshal', logo: '/companies/forbes.svg' },
-  { name: 'Mercedes-Benz', logo: '/companies/mercedes-benz.svg' },
-  { name: 'IBM', logo: '/companies/ibm.svg' },
-  { name: 'Microsoft', logo: '/companies/microsoft.svg' },
-  { name: 'mastercard', logo: '/companies/mastercard.svg' },
-  { name: 'Oracle', logo: '/companies/oracle.svg' },
+export function CompaniesList() {
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
+  const [count, setCount] = useState(0)
 
-];
+  const plugin = useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  )
 
-export default function InfiniteLogoSlider() {
+  useEffect(() => {
+    if (!api) {
+      return
+    }
+
+    setCount(api.scrollSnapList().length)
+    setCurrent(api.selectedScrollSnap())
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap())
+    })
+  }, [api])
+
   return (
-    <div className="text-center py-8">
-      {/* Heading */}
-      <h2 className="text-3xl font-bold mb-6">Our Recruiters</h2>
+      <Carousel
+        setApi={setApi}
+        className="w-full"
+        plugins={[plugin.current]}
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+      >
+        <CarouselContent className="-ml-1">
+          {companies.map((image, index) => (
+            <CarouselItem key={index} className="pl-1 basis-full md:basis-1/3 lg:basis-1/5">
+              <div className="p-1">
+                <Card className="border-0 shadow-none">
+                  <div className="aspect-[2/1] flex items-center justify-center p-2">
+                    <Image
+                      src={image.logo}
+                      alt={image.name}
+                      width={400}
+                      height={200}
+                      className="object-contain w-full h-full"
+                    />
+                  </div>
+                </Card>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <div className="flex justify-center gap-2 mt-4">
+          {Array.from({ length: count }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => api?.scrollTo(index)}
+              className={cn(
+                "w-2 h-2 rounded-full transition-all duration-300",
+                index === current
+                  ? "bg-primary w-4"
+                  : "bg-muted-foreground/20 hover:bg-muted-foreground/40"
+              )}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      </Carousel>
+  )
+}
 
-      {/* Logo Slider */}
-      <div className="relative flex w-auto">
-        {/* First Animation Layer */}
-        <div className="flex animate-marquee whitespace-nowrap">
-          {companies.map((company) => (
-            <div
-              key={company.name}
-              className="mx-4 transition-transform transform hover:scale-110"
-            >
-              <Image
-                src={company.logo}
-                alt={`${company.name} logo`}
-                width={250}
-                height={200}
-                className="max-h-20 w-auto h-20"
-              />
-            </div>
-          ))}
-        </div>
-        {/* Second Animation Layer */}
-        <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap">
-          {companies.map((company) => (
-            <div
-              key={`${company.name}-2`}
-              className="mx-4 transition-transform transform hover:scale-110"
-            >
-              <Image
-                src={company.logo}
-                alt={`${company.name} logo`}
-                width={250}
-                height={200}
-                className="max-h-20 w-auto h-20"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+export default function CompanySection() {
+  return (
+    <div className="w-full max-w-7xl mx-auto px-4 mb-10">
+      <h1 className="text-4xl md:text-6xl text-center font-bold mb-8">Companies</h1>
+      <p className="text-center text-muted-foreground mb-8">The list of companies where our students have placed</p>
+      <CompaniesList/>
     </div>
-  );
+  )
 }

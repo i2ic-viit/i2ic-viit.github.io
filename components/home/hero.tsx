@@ -61,7 +61,7 @@ import { notifications } from '@/data/notifications'
 export default function HeroSection() {
   return (
     <div className="flex min-h-[70vh] h-[calc(100vh-64px)] flex-col items-center justify-center px-4 py-12 text-center md:px-6 lg:px-8">
-      <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-5xl">
+      <h1 className="max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
         <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-purple-300 bg-clip-text text-transparent">Empowering Students: </span> Connecting Education 
         with Industry for Success
       </h1>
@@ -90,7 +90,7 @@ export default function HeroSection() {
       </div>
 
       <div className="mt-8 flex items-center gap-4">
-        <Button size="lg" className="bg-blue-500 hover:bg-blue-600">
+        <Button size="lg">
           Start your free trial
         </Button>
         <Button variant="link" className="text-base" asChild>

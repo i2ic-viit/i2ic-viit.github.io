@@ -27,4 +27,43 @@ const faculty = [
     },
 ];
 
-export { faculty };
+const committeeMembers = [
+  {
+    name: "Supal Vasani",
+    role: "Web Development Lead",
+    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    linkedinUrl: "https://linkedin.com"
+  },
+  {
+    name: "Alex Chen",
+    role: "Technical Director",
+    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    linkedinUrl: "https://linkedin.com"
+  },
+  {
+    name: "Sarah Johnson",
+    role: "Project Manager",
+    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    linkedinUrl: "https://linkedin.com"
+  },
+  {
+    name: "Michael Brown",
+    role: "Design Lead",
+    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    linkedinUrl: "https://linkedin.com"
+  },
+  {
+    name: "Emma Wilson",
+    role: "Marketing Head",
+    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    linkedinUrl: "https://linkedin.com"
+  },
+  {
+    name: "David Lee",
+    role: "Content Strategist",
+    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    linkedinUrl: "https://linkedin.com"
+  }
+]
+
+export { faculty, committeeMembers };

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Montserrat, Noto_Sans, Raleway } from "next/font/google";
-import Navbar from '@/components/new-navbar';
+import Navbar from "@/components/new-navbar";
 import { Footer } from "@/components/footer";
 
 const raleway = Raleway({

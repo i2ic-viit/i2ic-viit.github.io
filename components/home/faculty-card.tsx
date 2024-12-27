@@ -28,7 +28,7 @@ export default function FacultyTestimonialCard({
         "md:flex-row",
         imagePosition === 'right' && "md:flex-row-reverse"
       )}>
-        <div className="w-full md:w-1/3 aspect-square relative">
+        <div className="w-full md:w-1/3 lg:w-1/5   aspect-square relative">
           <Image
             src={imageSrc}
             alt={`${name}'s testimonial`}

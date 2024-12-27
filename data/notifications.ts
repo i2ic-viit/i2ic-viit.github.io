@@ -1,4 +1,11 @@
-export const notifications = [
+interface Notification {
+    id: string | number; 
+    title: string;
+    description: string;
+    time: string;
+}
+
+export const notifications: Notification[] = [
     {
         id: 1,
         title: "New feature released",

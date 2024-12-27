@@ -1,7 +1,9 @@
+
 import type { Metadata } from "next";
 import "./globals.css";
 import { Montserrat, Noto_Sans, Raleway } from "next/font/google";
-import Navbar from '@/components/navbar';
+import Navbar from '@/components/Navbar';
+// import Events from '@/app/pages/events'
 import { Footer } from "@/components/footer";
 
 const raleway = Raleway({
@@ -28,7 +30,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -38,6 +40,7 @@ export default function RootLayout({
         className={`${montserrat.variable} ${raleway.variable} ${noto_sans.variable} antialiased`}
       >
         <Navbar/>
+        
         {children}
         <Footer/>
       </body>

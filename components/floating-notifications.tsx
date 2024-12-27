@@ -12,7 +12,7 @@ export function FloatingNotifications() {
     const notificationRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        function handleClickOutside(event: MouseEvent) {
+        function handleClickOutside(event: Event) {
             if (
                 notificationRef.current &&
                 !notificationRef.current.contains(event.target as Node)
@@ -22,8 +22,10 @@ export function FloatingNotifications() {
         }
 
         document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("scroll", handleClickOutside);
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("scroll", handleClickOutside);
         };
     }, []);
 
@@ -61,7 +63,7 @@ export function FloatingNotifications() {
                 </Card>
             ) : (
                 <Button
-                    variant="outline"
+                    variant="default"
                     size="icon"
                     className="size-12 rounded-full shadow-lg"
                     onClick={() => setIsExpanded(true)}

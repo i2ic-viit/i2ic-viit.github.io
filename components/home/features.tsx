@@ -23,7 +23,7 @@ const features = [
 export default function FeaturesGrid() {
   return (
     <section className="w-full py-12 md:py-16 lg:py-20">
-      <div className="container px-4 md:px-6 mx-auto">
+      <div className="container px-4 md:px-6 mx-auto text-left">
         <div className="grid gap-6 md:gap-8 lg:gap-10 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
             <div key={index} className="relative">

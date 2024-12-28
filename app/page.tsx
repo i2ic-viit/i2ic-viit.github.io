@@ -1,22 +1,28 @@
 import CompanySection from "@/components/home/companies-list";
 import { EventsSlider } from "@/components/home/events-slider"
-// import HeroSection from "@/components/home/hero";
+import HeroSection from "@/components/home/hero";
 import CommitteeSection from "@/components/home/committee-section";
 import FeaturesGrid from "@/components/home/features";
 import FacultySection from "@/components/home/faculty-section";
-import LampHero from "@/components/ui/lamp";
-import { FloatingNotifications } from "@/components/floating-notifications";
+import NotificationSnackbar from "@/components/home/notification-snackbar";
+// import LampHero from "@/components/ui/lamp";
+// import { FloatingNotifications } from "@/components/floating-notifications";
 
 export default function Home() {
   return (
     <div>
-      <FloatingNotifications/>
-      <LampHero/>
+      {/* <LampHero/> */}
+      <HeroSection/>
       <FeaturesGrid/>
+      <div className="text-primary text-xl md:text-3xl text-center font-semibold">
+        Notifications
+      </div>
+      <NotificationSnackbar/>
       <EventsSlider />
       <FacultySection/>
       <CommitteeSection/>
       <CompanySection/>
+      {/* <FloatingNotifications/> */}
     </div> 
   );
 }

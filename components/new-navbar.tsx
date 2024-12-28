@@ -26,7 +26,7 @@ const Navbar = () => {
                     href="/"
                     className="mr-4 flex items-center font-noto-sans font-bold text-2xl lg:text-3xl"
                 >
-                    <Logo/>
+                    <Logo i2ic/>
                     I2IC
                 </Link>
                 {isMobile ? (

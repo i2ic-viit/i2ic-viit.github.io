@@ -1,7 +1,17 @@
-export const events = [
+export type Event = {
+  id: string | number,
+  title: string,
+  tag?: string,
+  description: string,
+  image: string,
+  backgroundImage: string,
+  link: string
+};
+
+export const events: Event[] = [
   {
     id: 1,
-    title: 'SATURDAY CLUBS',
+    title: 'Saturday Club',
     description: 'The Saturday Club, held twice a semester, offers diverse activities like mock interviews, group discussions, and project presentations to prepare students for the latest interview trends. Esteemed alumni guide students, helping build industrial connections. Core and HR mock interviews were conducted for various branches. Participants received valuable feedback and networking opportunities. Pre-placement talks provided insights into company processes.',
     image: '/events-slider/saturday_club/sat_club.JPG?height=400&width=600',
     backgroundImage: '/events-slider/saturday_club/sat_club_bg.jpg?height=800&width=1200',
@@ -17,7 +27,7 @@ export const events = [
   },
   {
     id: 3,
-    title: 'ALUMNI MEETINGS',
+    title: 'Alumni Meetings',
     description: 'Alumni meetings at I2IC serve as a platform for students to connect with successful alumni across various fields. Held multiple times each semester, these sessions provide guidance on industry trends, career development, and building professional networks. Esteemed alumni share their experiences, offering practical insights to bridge the academic-industry gap. The interactive format encourages students to seek advice and establish meaningful connections. These meetings foster mentorship and inspire students to excel in their professional journeys.',
     image: '/events-slider/alumni_meetings/alumni-meet.JPG?height=400&width=600',
     backgroundImage: '/events-slider/alumni_meetings/alumni-meet.JPG?height=800&width=1200',
@@ -34,10 +44,10 @@ export const events = [
   },
   {
     id: 5,
-    title: 'RESUME BUILDING SESSIONS',
+    title: 'Resume Building Sessions',
     description: 'On 28th October 2023, I2IC hosted a resume-building session led by Mr. Vivek Choudhary, a graduate from VESIT Mumbai and holds an MBA from IIM Trichy. With over five years of corporate experience at companies like Accenture, ICICI Prudential, LIC, and Bajaj Allianz. Over 150 final-year students attended the offline session organized by VIITs TPO. Mr. Solanki shared key insights into crafting professional resumes, dos and donts, and practical examples. The session emphasized the importance of a well-structured resume in placements and included guidance on online and offline resume creation. Students left equipped to build impactful resumes, making the event a resounding success.',
     image: '/events-slider/resume_building _sessions/res_build.jpg?height=400&width=600',
-    backgroundImage: '/events-slider/resume_building _sessions/res_buil_bg.jpg?height=800&width=1200',
+    backgroundImage: '/events-slider/resume_building_sessions/res_buil_bg.jpg?height=800&width=1200',
     link: '#',
   },
   {

@@ -1,7 +1,7 @@
 import { type ReactNode } from "react";
 import { Percent, Gift, Tag } from "lucide-react";
 
-interface Notification {
+export interface Notification {
     id: string | number;
     icon: ReactNode; 
     title: string;

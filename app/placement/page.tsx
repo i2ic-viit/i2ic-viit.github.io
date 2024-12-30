@@ -1,21 +1,15 @@
 "use client";
-import Link from "next/link";
-import { useState } from "react";
+
+// import { useState } from "react";
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
     TableHead,
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { topPlacements } from "@/data/placement/top-placement";
 import { placementData } from "@/data/placement/all-placement";
@@ -212,23 +206,23 @@ const PlacementHome = () => {
     // };
 
     // Set default selected year and its data
-    const [selectedYear, setSelectedYear] = useState("2019-2020");
-    const [displayedStudents, setDisplayedStudents] = useState(
-        placementData[selectedYear]
-    );
+    // const [selectedYear, setSelectedYear] = useState("2019-2020");
+    // const [displayedStudents, setDisplayedStudents] = useState(
+    //     placementData[selectedYear]
+    // );
 
-    // Handle click on year navigation links
-    const handleYearChange = (year: string) => {
-        setSelectedYear(year);
-        setDisplayedStudents(placementData[year]);
-    };
+    // // Handle click on year navigation links
+    // const handleYearChange = (year: string) => {
+    //     setSelectedYear(year);
+    //     setDisplayedStudents(placementData[year]);
+    // };
 
     return (
         <div className="p-6 font-sans space-y-8">
             {/* Navigation Section */}
             <div>
                 <h1 className="text-3xl font-bold mb-6 text-center">
-                    Top Placement's
+                    Top Placement&apos;s
                 </h1>
             </div>
 
@@ -311,56 +305,68 @@ const PlacementHome = () => {
 
             <div className="p-6 font-sans space-y-8">
                 <h1 className="text-3xl font-bold mb-6 text-center">
-                    Year Wise Placements'
+                    Year Wise Placements&apos;
                 </h1>
-              <Tabs defaultValue={Object.keys(placementData)[0]} className="container mx-auto">
-              <TabsList>
-                {Object.keys(placementData).map((key, idx) => (
-                <TabsTrigger value={key} key={`${idx}-tab-trigger`}>{key}</TabsTrigger>
-                ))}
-                
-              </TabsList>
-              {Object.keys(placementData).map((key, idx) => (
-              <TabsContent value={key} key={`${idx}-tab-content`}>
-                 <Table>
-                    {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
-                    <TableHeader className="bg-secondary">
-                        <TableRow>
-                            <TableHead className="text-foreground">
-                                Name
-                            </TableHead>
-                            <TableHead className="text-foreground">
-                                Company
-                            </TableHead>
-                            <TableHead className="text-foreground">
-                                Role
-                            </TableHead>
-                            <TableHead className="text-foreground">
-                                Package (LPA)
-                            </TableHead>
-                        </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                        {placementData[key].map((student, index) => (
-                            <TableRow
-                                key={`${index}-top-placement`}
-                                className="font-semibold text-muted-foreground"
-                            >
-                                <TableCell>{student.name}</TableCell>
-                                <TableCell>{student.company}</TableCell>
-                                <TableCell>{student.role}</TableCell>
-                                <TableCell className="text-green-600">
-                                    {student.package}
-                                </TableCell>
-                            </TableRow>
+                <Tabs
+                    defaultValue={Object.keys(placementData)[0]}
+                    className="container mx-auto"
+                >
+                    <TabsList>
+                        {Object.keys(placementData).map((key, idx) => (
+                            <TabsTrigger value={key} key={`${idx}-tab-trigger`}>
+                                {key}
+                            </TabsTrigger>
                         ))}
-                    </TableBody>
-                </Table>
-              </TabsContent>
-              ))}
-            </Tabs>
+                    </TabsList>
+                    {Object.keys(placementData).map((key, idx) => (
+                        <TabsContent value={key} key={`${idx}-tab-content`}>
+                            <Table>
+                                {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
+                                <TableHeader className="bg-secondary">
+                                    <TableRow>
+                                        <TableHead className="text-foreground">
+                                            Name
+                                        </TableHead>
+                                        <TableHead className="text-foreground">
+                                            Company
+                                        </TableHead>
+                                        <TableHead className="text-foreground">
+                                            Role
+                                        </TableHead>
+                                        <TableHead className="text-foreground">
+                                            Package (LPA)
+                                        </TableHead>
+                                    </TableRow>
+                                </TableHeader>
+                                <TableBody>
+                                    {placementData[key].map(
+                                        (student, index) => (
+                                            <TableRow
+                                                key={`${index}-top-placement`}
+                                                className="font-semibold text-muted-foreground"
+                                            >
+                                                <TableCell>
+                                                    {student.name}
+                                                </TableCell>
+                                                <TableCell>
+                                                    {student.company}
+                                                </TableCell>
+                                                <TableCell>
+                                                    {student.role}
+                                                </TableCell>
+                                                <TableCell className="text-green-600">
+                                                    {student.package}
+                                                </TableCell>
+                                            </TableRow>
+                                        )
+                                    )}
+                                </TableBody>
+                            </Table>
+                        </TabsContent>
+                    ))}
+                </Tabs>
             </div>
-            
+
             {/* Placed Student Info Section with Navigation */}
             {/* <div className="p-6 font-sans space-y-8">
                 <div className="flex space-x-4 mb-6">

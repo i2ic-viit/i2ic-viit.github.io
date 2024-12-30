@@ -21,27 +21,27 @@ function EventCard({ index } : { index: number }) {
 
     return (
         <Card className="w-9/12 mx-auto bg-secondary/95 backdrop-blur-md">
-            <CardContent className="p-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-[450px]">
-                    <div className="flex flex-col justify-center space-y-6 h-full overflow-hidden">
+            <CardContent className="p-4 md:p-8">
+                <div className="flex flex-col md:flex-row gap-8 h-[450px]">
+                {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-[450px]"> */}
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg flex-shrink-0 md:max-w-[60%]">
+                        <Image
+                            src={event.image}
+                            alt={event.title}
+                            fill 
+                            className="object-cover transform hover:scale-105 transition-transform duration-700"
+                        />
+                    </div>
+                    <div className="flex flex-col justify-center space-y-6 h-full w-full">
                         <span className="text-sm tracking-wider font-semibold text-secondary-foreground">{event.tag}</span>
 
-                        <h2 className="text-4xl font-bold tracking-tight">{event.title}</h2>
+                        <h2 className="text-2xl md:text-4xl font-bold tracking-tight">{event.title}</h2>
 
                         <p className="text-muted-foreground leading-relaxed overflow-y-auto hidden md:block max-h-[200px] pr-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 text-sm">{event.description}</p>
 
                         <Button>
                             Find out more
                         </Button>
-                    </div>
-
-                    <div className="relative h-full overflow-hidden rounded-xl shadow-lg">
-                        <Image
-                            src={event.image}
-                            alt={event.title}
-                            fill 
-                            className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-700"
-                        />
                     </div>
                 </div>
             </CardContent>

@@ -8,7 +8,7 @@ type Event = {
 
 type CalendarProps = {
   events: Event[];
-  onDateClick: (d: Date) => void;
+  onDateClick: (date:Date) => void;
 };
 
 const Calendar: React.FC<CalendarProps> = ({ events, onDateClick }) => {

@@ -121,11 +121,12 @@ const EventSlider = ({ events }: { events: Event[] }) => {
             >
               &times;
             </button>
-            {/* <Image
+            {/* <img
               src={currentEvent.backgroundImage}
               alt={currentEvent.title}
+              fill
               className="w-full h-[300px] object-cover rounded-t-lg mb-5"
-            /> */}
+            /> } */}
             <div className="relative w-full h-[300px]">
               <Image
                 src={currentEvent.backgroundImage}

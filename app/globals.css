@@ -111,3 +111,9 @@ h1, h2, h3 {
         @apply bg-background text-foreground;
     }
 }
+
+
+.react-image-gallery .image-gallery-image img {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}

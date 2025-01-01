@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Calendar from "./calendar";
 import { Event } from "@/data/events";
 import { isSameDay } from "date-fns";
+import Image from "next/image";
 
 const EventSlider = ({ events }: { events: Event[] }) => {
   const nextEventIndex = events.findIndex(
@@ -49,9 +50,8 @@ const EventSlider = ({ events }: { events: Event[] }) => {
         {events.map((event, index) => (
           <div
             key={event.id}
-            className={`${
-              index === currentIndex ? "block" : "hidden"
-            } transition-all duration-500 bg-cover bg-center p-5 rounded-lg shadow-lg h-[400px]`}
+            className={`${index === currentIndex ? "block" : "hidden"
+              } transition-all duration-500 bg-cover bg-center p-5 rounded-lg shadow-lg h-[400px]`}
             style={{ backgroundImage: `url(${event.backgroundImage})` }}
           >
             {nextEvent &&
@@ -121,11 +121,21 @@ const EventSlider = ({ events }: { events: Event[] }) => {
             >
               &times;
             </button>
-            <img
+            {/* <Image
               src={currentEvent.backgroundImage}
               alt={currentEvent.title}
               className="w-full h-[300px] object-cover rounded-t-lg mb-5"
-            />
+            /> */}
+            <div className="relative w-full h-[300px]">
+              <Image
+                src={currentEvent.backgroundImage}
+                alt={currentEvent.title}
+                layout="fill"
+                objectFit="cover"
+                className="rounded-t-lg mb-5"
+              />
+            </div>
+
             <h2 className="text-2xl mb-3">{currentEvent.title}</h2>
             <p className="text-sm mb-5 max-h-48 overflow-auto">
               {currentEvent.description}

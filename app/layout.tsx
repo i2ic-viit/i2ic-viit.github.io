@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import "./globals.css";
 import { Montserrat, Noto_Sans, Raleway } from "next/font/google";
@@ -28,16 +29,18 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
+      
       <body
         className={`${montserrat.variable} ${raleway.variable} ${noto_sans.variable} antialiased`}
       >
         <Navbar/>
+        
         {children}
         <Footer/>
       </body>

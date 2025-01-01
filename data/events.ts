@@ -5,7 +5,8 @@ export type Event = {
   description: string,
   image: string,
   backgroundImage: string,
-  link: string
+  link: string,
+  date: Date,
 };
 
 export const events: Event[] = [
@@ -16,6 +17,7 @@ export const events: Event[] = [
     image: '/events-slider/saturday_club/sat_club.JPG?height=400&width=600',
     backgroundImage: '/events-slider/saturday_club/sat_club_bg.jpg?height=800&width=1200',
     link: '#',
+    date: new Date('2024-09-10'),
   },
   {
     id: 2,
@@ -24,6 +26,7 @@ export const events: Event[] = [
     image: '/events-slider/SMS-GROUP-PLACEMENT-DRIVE/pd.jpeg?height=400&width=600',
     backgroundImage: '/events-slider/SMS-GROUP-PLACEMENT-DRIVE/pd-bg.jpeg?height=800&width=1200',
     link: '#',
+    date: new Date('2024-06-15'),  
   },
   {
     id: 3,
@@ -32,6 +35,7 @@ export const events: Event[] = [
     image: '/events-slider/alumni_meetings/alumni-meet.JPG?height=400&width=600',
     backgroundImage: '/events-slider/alumni_meetings/alumni-meet.JPG?height=800&width=1200',
     link: '#',
+    date: new Date('2024-02-20'),  
   },
   {
     id: 4,
@@ -41,6 +45,7 @@ export const events: Event[] = [
     image: '/events-slider/LTI-MINDTREE/LTI.jpeg?height=400&width=600',
     backgroundImage: '/events-slider/LTI-MINDTREE/ltimindtree.jpeg?height=800&width=1200',
     link: '#',
+    date: new Date('2023-11-30'),
   },
   {
     id: 5,
@@ -49,6 +54,7 @@ export const events: Event[] = [
     image: '/events-slider/resume_building _sessions/res_build.jpg?height=400&width=600',
     backgroundImage: '/events-slider/resume_building_sessions/res_buil_bg.jpg?height=800&width=1200',
     link: '#',
+    date: new Date('2023-10-28'),
   },
   {
     id: 6,
@@ -57,6 +63,7 @@ export const events: Event[] = [
     image: '/events-slider/aiml-workshop/aiml-workshop.JPG?height=400&width=600',
     backgroundImage: '/events-slider/aiml-workshop/aiml-workshop-bg.JPG?height=800&width=1200',
     link: '#',
+    date: new Date('2025-03-12'),  
   },
   {
     id: 7,
@@ -65,5 +72,6 @@ export const events: Event[] = [
     image: '/events-slider/mentor-to-go.png?height=400&width=600',
     backgroundImage: '/events-slider/mentor-to-go.png?height=800&width=1200',
     link: '#',
+    date: new Date('2025-01-01'),  
   },
 ]

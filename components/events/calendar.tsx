@@ -10,7 +10,7 @@ type CalendarProps = {
   events: Event[];
 };
 
-const Calendar: React.FC<CalendarProps> = ({ events }) => {
+const Calendar: React.FC<CalendarProps> = ({ events, onDateClick }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const startDate = startOfWeek(startOfMonth(currentDate));
@@ -29,10 +29,15 @@ const Calendar: React.FC<CalendarProps> = ({ events }) => {
     }
     return {};
   };
-  
 
   const handlePreviousMonth = () => setCurrentDate(subMonths(currentDate, 1));
   const handleNextMonth = () => setCurrentDate(addMonths(currentDate, 1));
+
+  const handleDateClick = (day: Date) => {
+    if (events.some(event => isSameDay(event.date, day))) {
+      onDateClick(day); 
+    }
+  };
 
   return (
     <div style={{ maxWidth: '300px', margin: '0 auto', fontFamily: 'Arial, sans-serif' }}>
@@ -59,6 +64,7 @@ const Calendar: React.FC<CalendarProps> = ({ events }) => {
               ...getDayStyle(day),
             }}
             title={events.find(event => isSameDay(event.date, day))?.description || ''}
+            onClick={() => handleDateClick(day)}
           >
             {format(day, 'd')}
           </div>

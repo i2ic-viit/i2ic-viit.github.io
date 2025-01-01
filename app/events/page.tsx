@@ -2,16 +2,16 @@
 import EventSlider from "@/components/events/event-slider";
 import HeroImage from "@/components/HeroImage";
 import GallerySlider from "@/components/events/Gallary-slider"
+import { events } from "@/data/events"; 
 export default function Events() {
   return (
     <div>
       <HeroImage title="Events"
-        imageSrc="https://www.solidbackgrounds.com/images/1600x900/1600x900-dark-blue-solid-color-background.jpg" // Replace with your image URL
+        imageSrc="https://www.solidbackgrounds.com/images/1600x900/1600x900-dark-blue-solid-color-background.jpg" 
         altText="Events Hero Image"/>
-      <EventSlider />
-      {/* <center>hello in Events</center> */}
-      <div style={{ position: "relative", zIndex: -1 }}>
-      <GallerySlider />
+      <EventSlider events={events}/>
+      <div style={{ position: "relative" }}>
+        <GallerySlider />
       </div>
     </div>
   );

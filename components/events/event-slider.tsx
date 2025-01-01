@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Calendar from "./calendar";
 import { Event } from "@/data/events";
 import { isSameDay } from "date-fns";
+import Image from "next/image";
 
 const EventSlider = ({ events }: { events: Event[] }) => {
   const nextEventIndex = events.findIndex(
@@ -121,9 +122,10 @@ const EventSlider = ({ events }: { events: Event[] }) => {
             >
               &times;
             </button>
-            <img
+            <Image
               src={currentEvent.backgroundImage}
               alt={currentEvent.title}
+              fill
               className="w-full h-[300px] object-cover rounded-t-lg mb-5"
             />
             <h2 className="text-2xl mb-3">{currentEvent.title}</h2>

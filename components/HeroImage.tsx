@@ -6,7 +6,7 @@ interface HeroImageProps {
   altText: string;
 }
 
-const HeroImage: React.FC<HeroImageProps> = ({ title, imageSrc, altText }) => {
+const HeroImage: React.FC<HeroImageProps> = ({ title, imageSrc }) => {
   return (
     <div
       className="relative w-full h-[30vh] md:h-[30vh] bg-cover bg-center"

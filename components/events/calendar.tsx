@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { format, isToday, isSameDay, addMonths, subMonths, addDays, startOfMonth, endOfMonth, startOfWeek, endOfWeek, eachDayOfInterval } from 'date-fns';
+import { format, isToday, isSameDay, addMonths, subMonths, startOfMonth, endOfMonth, startOfWeek, endOfWeek, eachDayOfInterval } from 'date-fns';
 
 type Event = {
   date: Date;
@@ -8,6 +8,7 @@ type Event = {
 
 type CalendarProps = {
   events: Event[];
+  onDateClick: (d: Date) => void;
 };
 
 const Calendar: React.FC<CalendarProps> = ({ events, onDateClick }) => {

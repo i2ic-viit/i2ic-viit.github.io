@@ -9,6 +9,7 @@ import {
     SheetHeader,
     SheetTitle,
     SheetTrigger,
+    SheetClose
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
@@ -57,12 +58,14 @@ const Navbar = () => {
                                         key={link.href}
                                         asChild
                                     >
+                                        <SheetClose asChild>
                                         <Link
                                             href={link.href}
                                             className="px-4 py-2 text-sm font-medium rounded-md"
-                                        >
+                                            >
                                             {link.text}
                                         </Link>
+                                        </SheetClose>
                                     </Button>
                                 ))}
                             </div>

@@ -3,7 +3,7 @@ import { Globe, Instagram, AtSign, Linkedin } from "lucide-react";
 const navigationLinks = [
     { text: "About Us", href: "/about" },
     { text: "Events", href: "/events" },
-    { text: "Contact", href: "/contact-us" },
+    // { text: "Contact", href: "/contact-us" },
     { text: "Placement", href: "/placement" },
     { text: "Upcoming Drives", href: "/upcoming-drives", important: true },
 ];

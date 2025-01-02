@@ -19,17 +19,23 @@ const Calendar: React.FC<CalendarProps> = ({ events, onDateClick }) => {
   const days = eachDayOfInterval({ start: startDate, end: endDate });
 
   const getDayStyle = (day: Date) => {
+    const eventOnThisDay = events.find(event => isSameDay(event.date, day));
+    const isPastEvent = eventOnThisDay && new Date(eventOnThisDay.date) < new Date();
+  
     if (isToday(day)) {
-      return { backgroundColor: 'blue', color: 'white' };
+      return { backgroundColor: '#3580be', color: 'white' }; 
     }
-    if (events.some(event => isSameDay(event.date, day))) {
-      return { backgroundColor: 'orange', color: 'white' };
+    if (eventOnThisDay) {
+      return isPastEvent
+        ? { backgroundColor: '#ffe4b5', color: 'gray' } 
+        : { backgroundColor: '#ffa500', color: 'white' }; 
     }
     if (day < new Date()) {
       return { color: 'gray' }; 
     }
     return {};
   };
+  
 
   const handlePreviousMonth = () => setCurrentDate(subMonths(currentDate, 1));
   const handleNextMonth = () => setCurrentDate(addMonths(currentDate, 1));

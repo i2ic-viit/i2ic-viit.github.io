@@ -5,6 +5,9 @@ const images = [
   { src: "/events-slider/aiml-workshop/aiml-workshop.JPG", alt: "Image 1" },
   { src: "/events-slider/alumni_meetings/alumni-meet.JPG", alt: "Image 2" },
   { src: "/events-slider/saturday_club/sat_club_bg.jpg", alt: "Image 3" },
+  { src: "/events-slider/LTI-MINDTREE/ltimindtree.jpeg", alt: "Image 4" },
+  { src: "/events-slider/resume_building _sessions/res_buil_bg.jpg", alt: "Image 5" },
+  { src: "/events-slider/resume_building _sessions/res_build.jpg", alt: "Image 5" },
 ];
 
 export default function ImageSlider() {
@@ -19,7 +22,7 @@ export default function ImageSlider() {
   };
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 3000); 
+    const interval = setInterval(nextSlide, 5000); 
     return () => clearInterval(interval); 
   }, []);
 

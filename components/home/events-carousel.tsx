@@ -33,7 +33,7 @@ function EventCard({ index } : { index: number }) {
                         />
                     </div>
                     <div className="flex flex-col justify-center space-y-6 h-full w-full">
-                        <span className="text-sm tracking-wider font-semibold text-secondary-foreground">{event.tag}</span>
+                        <span className="text-sm tracking-wider font-semibold text-secondary-foreground">{event.tag || "Event"}</span>
 
                         <h2 className="text-2xl md:text-4xl font-bold tracking-tight">{event.title}</h2>
 

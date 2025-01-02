@@ -1,5 +1,5 @@
 import { type ReactNode } from "react";
-import { Percent, Gift, Tag } from "lucide-react";
+import { Gift, Tag, Users } from "lucide-react";
 
 export interface Notification {
     id: string | number;
@@ -13,16 +13,17 @@ export interface Notification {
 export const notifications: Notification[] = [
     {
         id: 1,
-        icon: <Percent className="h-6 w-6 text-destructive" />,
-        title: "New feature released",
-        description: "Check out our latest updates and improvements",
-        time: "2 minutes ago",
+        icon: <Users className="h-6 w-6 text-destructive" />,
+        title: "New Comittee",
+        href: "/about-us", 
+        description: "Check out our new comittee",
+        time: "12:00 Dec 29, 2024",
     },
     {
         id: 2,
         icon: <Gift className="h-6 w-6 text-destructive" />,
-        title: "System maintenance",
-        description: "Scheduled maintenance window starts in 1 hour",
+        title: "Rewards",
+        description: "score high, and win by participating in our events",
         time: "23:00 Oct 12, 2024",
     },
     {

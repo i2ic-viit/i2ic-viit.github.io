@@ -19,7 +19,7 @@ export function CompaniesList() {
   const [count, setCount] = useState(0)
 
   const plugin = useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
+    Autoplay({ delay: 2000, stopOnInteraction: false })
   )
 
   useEffect(() => {

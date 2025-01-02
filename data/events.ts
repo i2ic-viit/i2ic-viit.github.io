@@ -17,7 +17,7 @@ export const events: Event[] = [
     image: '/events-slider/saturday_club/sat_club.JPG?height=400&width=600',
     backgroundImage: '/events-slider/saturday_club/sat_club_bg.jpg?height=800&width=1200',
     link: '#',
-    date: new Date('2024-09-10'),
+    date: new Date('2025-01-10'),
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ export const events: Event[] = [
     image: '/events-slider/SMS-GROUP-PLACEMENT-DRIVE/pd.jpeg?height=400&width=600',
     backgroundImage: '/events-slider/SMS-GROUP-PLACEMENT-DRIVE/pd-bg.jpeg?height=800&width=1200',
     link: '#',
-    date: new Date('2024-06-15'),  
+    date: new Date('2025-02-15'),  
   },
   {
     id: 3,

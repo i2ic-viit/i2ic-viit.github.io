@@ -5,7 +5,8 @@ import { isSameDay } from "date-fns";
 import Image from "next/image";
 
 const EventSlider = ({ events }: { events: Event[] }) => {
-  const nextEventIndex = events.findIndex(
+  const sortedEvents = events.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  const nextEventIndex = sortedEvents.findIndex(
     (event) => new Date(event.date) > new Date()
   );
 
@@ -16,18 +17,18 @@ const EventSlider = ({ events }: { events: Event[] }) => {
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex > 0 ? prevIndex - 1 : events.length - 1
+      prevIndex > 0 ? prevIndex - 1 : sortedEvents.length - 1
     );
   };
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex < events.length - 1 ? prevIndex + 1 : 0
+      prevIndex < sortedEvents.length - 1 ? prevIndex + 1 : 0
     );
   };
 
   const handleDateClick = (date: Date) => {
-    const eventIndex = events.findIndex((event) =>
+    const eventIndex = sortedEvents.findIndex((event) =>
       isSameDay(event.date, date)
     );
     if (eventIndex !== -1) {
@@ -35,9 +36,9 @@ const EventSlider = ({ events }: { events: Event[] }) => {
     }
   };
 
-  const currentEvent = events[currentIndex];
-  const nextEvent = events
-    .filter((event) => new Date(event.date) > new Date())
+  const currentEvent = sortedEvents[currentIndex];
+  const nextEvent = sortedEvents
+    .filter((sortedEvents) => new Date(sortedEvents.date) > new Date())
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())[0];
 
   const truncateText = (text: string, length: number) => {
@@ -47,45 +48,57 @@ const EventSlider = ({ events }: { events: Event[] }) => {
   return (
     <div className="flex flex-col md:flex-row items-start p-5 gap-5">
       <div className="flex-8 max-w-full md:max-w-3/4 relative">
-        {events.map((event, index) => (
-          <div
-            key={event.id}
-            className={`${index === currentIndex ? "block" : "hidden"
-              } transition-all duration-500 bg-cover bg-center p-5 rounded-lg shadow-lg h-[400px]`}
-            style={{ backgroundImage: `url(${event.backgroundImage})` }}
-          >
-            {nextEvent &&
-              new Date(event.date).toISOString() === nextEvent.date.toISOString() && (
+
+        {sortedEvents.map((event, index) => {
+          const isNextEvent =
+            nextEvent &&
+            new Date(event.date).toISOString() === nextEvent.date.toISOString();
+          const isUpcomingEvent =
+            new Date(event.date) > new Date() && !isNextEvent;
+
+          return (
+            <div
+              key={event.id}
+              className={`${index === currentIndex ? "block" : "hidden"} 
+        transition-all duration-500 bg-cover bg-center p-5 rounded-lg shadow-lg h-[400px]`}
+              style={{ backgroundImage: `url(${event.backgroundImage})` }}
+            >
+              {isNextEvent && (
                 <div className="absolute top-3 right-3 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold z-10">
                   Next Event
                 </div>
               )}
-            <div className="bg-black/50 text-white rounded-lg p-4 flex flex-col justify-between h-full">
-              <h2 className="text-2xl mb-2">{event.title}</h2>
-
-              <p className="text-sm mb-2 md:hidden">
-                {truncateText(event.description, 100)}
-                {event.description.length > 100 && (
-                  <span
-                    className="text-blue-400 cursor-pointer"
-                    onClick={() => setShowDetails(true)}
-                  >
-                    {" Show More"}
-                  </span>
-                )}
-              </p>
-              <p className="text-sm mb-2 hidden md:block">
-                {event.description}
-              </p>
-              <button
-                onClick={() => setShowDetails(true)}
-                className="mt-auto bg-primary text-white px-4 py-2 rounded hover:bg-blue-600"
-              >
-                Learn More
-              </button>
+              {isUpcomingEvent && (
+                <div className="absolute top-3 right-3 bg-primary text-white px-3 py-1 rounded-full text-sm font-bold z-10">
+                  Upcoming Event
+                </div>
+              )}
+              <div className="bg-black/50 text-white rounded-lg p-4 flex flex-col justify-between h-full">
+                <h2 className="text-2xl mb-2">{event.title}</h2>
+                <p className="text-sm mb-2 md:hidden text-justify">
+                  {truncateText(event.description, 100)}
+                  {event.description.length > 100 && (
+                    <span
+                      className="text-blue-400 cursor-pointer"
+                      onClick={() => setShowDetails(true)}
+                    >
+                      {" Show More"}
+                    </span>
+                  )}
+                </p>
+                <p className="text-sm mb-2 hidden md:block text-justify">
+                  {event.description}
+                </p>
+                <button
+                  onClick={() => setShowDetails(true)}
+                  className="mt-auto bg-primary text-white px-4 py-2 rounded hover:bg-blue-600"
+                >
+                  Learn More
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
 
         <button
           onClick={handlePrev}
@@ -103,7 +116,7 @@ const EventSlider = ({ events }: { events: Event[] }) => {
 
       <div className="flex-2 md:max-w-1/4 bg-gray-100 rounded-lg p-3 hidden md:block">
         <h2 className="mb-4 text-center text-xl">Upcoming Events</h2>
-        <Calendar events={events} onDateClick={handleDateClick} />
+        <Calendar events={sortedEvents} onDateClick={handleDateClick} />
       </div>
 
       {showDetails && (
@@ -121,10 +134,10 @@ const EventSlider = ({ events }: { events: Event[] }) => {
             >
               &times;
             </button>
-           
+
             <div className="relative w-full h-[300px]">
               <Image
-                src={currentEvent.backgroundImage}
+                src={currentEvent.image}
                 alt={currentEvent.title}
                 layout="fill"
                 objectFit="cover"
@@ -137,9 +150,11 @@ const EventSlider = ({ events }: { events: Event[] }) => {
               {currentEvent.description}
             </p>
             {new Date(currentEvent.date) > new Date() ? (
-              <button className="px-5 py-2 bg-primary text-white rounded">
-                Register Now
-              </button>
+              <a href={currentEvent.link} rel="noopener noreferrer">
+                <button className="px-5 py-2 bg-primary text-white rounded">
+                  Register Now
+                </button>
+              </a>
             ) : (
               <button
                 disabled

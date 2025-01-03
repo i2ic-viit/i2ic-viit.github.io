@@ -9,7 +9,7 @@ import {
     SheetHeader,
     SheetTitle,
     SheetTrigger,
-    SheetClose
+    SheetClose,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
@@ -25,10 +25,9 @@ const Navbar = () => {
             <div className="flex h-16 items-center px-4">
                 <Link
                     href="/"
-                    className="mr-4 flex items-center font-noto-sans font-bold text-2xl lg:text-3xl"
+                    className="mr-4 font-noto-sans font-bold text-2xl lg:text-3xl"
                 >
-                    <Logo i2ic/>
-                    I2IC
+                    <Logo />
                 </Link>
                 {isMobile ? (
                     <Sheet>
@@ -42,7 +41,15 @@ const Navbar = () => {
                             className="w-full max-w-xs sm:w-64"
                         >
                             <SheetHeader>
-                                <SheetTitle className="font-noto-sans"><Logo/><br/>I2IC</SheetTitle>
+                                <SheetTitle className="font-noto-sans">
+                                    <Link
+                                        href="/"
+                                        className="flex flex-col items-center sm:items-start gap-2"
+                                    >
+                                        <Logo />
+                                        <span>I2IC</span>
+                                    </Link>
+                                </SheetTitle>
                                 <SheetDescription className="">
                                     Navigate through the site.
                                 </SheetDescription>
@@ -59,12 +66,15 @@ const Navbar = () => {
                                         asChild
                                     >
                                         <SheetClose asChild>
-                                        <Link
-                                            href={link.href}
-                                            className="px-4 py-2 text-sm font-medium rounded-md"
+                                            <Link
+                                                href={link.href}
+                                                className="text-sm font-medium text-muted-foreground px-4 py-2"
                                             >
-                                            {link.text}
-                                        </Link>
+                                                <span className="relative group">
+                                                    {link.text}
+                                                    <span className="absolute left-0 bottom-0 w-0 h-px bg-foreground group-hover:w-full transition-all duration-300"/>
+                                                </span>
+                                            </Link>
                                         </SheetClose>
                                     </Button>
                                 ))}
@@ -81,9 +91,10 @@ const Navbar = () => {
                             >
                                 <Link
                                     href={link.href}
-                                    className="text-sm font-medium hover:underline"
+                                    className="relative text-sm font-medium text-muted-foreground group px-4 py-2"
                                 >
                                     {link.text}
+                                    <span className="absolute left-4 bottom-2 w-0 h-px bg-foreground group-hover:w-[calc(100%-2rem)] transition-all duration-300" />
                                 </Link>
                             </Button>
                         ))}

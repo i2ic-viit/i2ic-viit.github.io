@@ -4,9 +4,9 @@ import Image from 'next/image';
 
 export default function Events() {
   return (
+    
     <div className="bg-white text-gray-800">
-      {/* Navbar Section */}
-      {/* <Navbar/> */}
+     
       
       {/* About Section */}
       <section className="py-16 px-8 bg-blue-50">

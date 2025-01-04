@@ -1,5 +1,5 @@
 import Image from "next/image";
-import i2icLogo from "@/public/i2ic-logo.png";
+import i2icLogo from "@/public/i2ic-logo.svg";
 import viLogo from "@/public/vi-logo.png";
 import { Separator } from "./ui/separator";
 

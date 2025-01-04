@@ -16,7 +16,7 @@ export default function Hero() {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-foreground">
               Industry Institute Interaction Council
             </h1>
-            <h2 className="text-xl md:text-2xl lg:text-3xl text-primary">
+            <h2 className="text-sm md:text-2xl lg:text-3xl text-primary">
               Training And Placement Cell VIT-Kondhawa
             </h2>
           </div>

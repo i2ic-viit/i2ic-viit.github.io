@@ -29,37 +29,37 @@ const faculty = [
 
 const committeeMembers = [
   {
-    name: "Supal Vasani",
-    role: "Web Development Lead",
+    name: "Chinmay Mhaske",
+    role: "President",
     imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
     linkedinUrl: "https://linkedin.com"
   },
   {
-    name: "Alex Chen",
-    role: "Technical Director",
+    name: "Pratik Mahajan",
+    role: "Vice-President",
     imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
     linkedinUrl: "https://linkedin.com"
   },
   {
-    name: "Sarah Johnson",
-    role: "Project Manager",
+    name: "Chinmayee Mali",
+    role: "Vice-President",
     imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
     linkedinUrl: "https://linkedin.com"
   },
   {
-    name: "Michael Brown",
-    role: "Design Lead",
+    name: "Om Kulthe",
+    role: "Secretary",
     imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
     linkedinUrl: "https://linkedin.com"
   },
   {
-    name: "Emma Wilson",
+    name: "Dr. Atul P. Kulkarni",
     role: "Marketing Head",
     imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
     linkedinUrl: "https://linkedin.com"
   },
   {
-    name: "David Lee",
+    name: "Dr. Leena A Deshpande",
     role: "Content Strategist",
     imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
     linkedinUrl: "https://linkedin.com"

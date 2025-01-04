@@ -1,5 +1,6 @@
 import CompanySection from "@/components/home/companies-list";
-import CommitteeSection from "@/components/home/committee-section";
+// import CommitteeSection from "@/components/home/committee-section";
+import CommitteeSection from "@/components/home/committee-members";
 import FeaturesGrid from "@/components/home/features";
 import NotificationSnackbar from "@/components/home/notification-snackbar";
 import Hero from "@/components/home/NewHero";

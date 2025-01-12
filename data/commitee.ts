@@ -63,6 +63,18 @@ const committeeMembers = [
     role: "Content Strategist",
     imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
     linkedinUrl: "https://linkedin.com"
+  },
+  {
+    name: "Dr. Leena A Deshpande",
+    role: "Content Strategist",
+    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    linkedinUrl: "https://linkedin.com"
+  },
+  {
+    name: "Dr. Leena A Deshpande",
+    role: "Content Strategist",
+    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    linkedinUrl: "https://linkedin.com"
   }
 ]
 

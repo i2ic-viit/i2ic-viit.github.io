@@ -99,8 +99,6 @@ export default function Events() {
         </div>
       </section>
 
-      {/* Footer Section */}
-      {/* <Footer/> */}
     </div>
   );
 }

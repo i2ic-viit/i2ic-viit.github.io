@@ -1,17 +1,18 @@
 import CompanySection from "@/components/home/companies-list";
-import HeroSection from "@/components/home/hero";
-import CommitteeSection from "@/components/home/committee-section";
+// import CommitteeSection from "@/components/home/committee-section";
+import CommitteeSection from "@/components/home/committee-members";
 import FeaturesGrid from "@/components/home/features";
-import FacultySection from "@/components/home/faculty-section";
 import NotificationSnackbar from "@/components/home/notification-snackbar";
+import Hero from "@/components/home/NewHero";
 import EventsCarousel from "@/components/home/events-carousel";
+import FacultyCoordinators from "@/components/home/faculty-coordinators";
 // import LampHero from "@/components/ui/lamp";
 
 export default function Home() {
   return (
     <div>
       {/* <LampHero/> */}
-      <HeroSection/>
+      <Hero/>
       <FeaturesGrid/>
       <div className="text-primary text-xl md:text-3xl text-center font-semibold">
         Notifications
@@ -19,7 +20,7 @@ export default function Home() {
       <NotificationSnackbar/>
       <div className="text-primary text-xl md:text-4xl text-center font-semibold mt-14"/>
       <EventsCarousel/>
-      <FacultySection/>
+      <FacultyCoordinators/>
       <CommitteeSection/>
       <CompanySection/>
     </div> 

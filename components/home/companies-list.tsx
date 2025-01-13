@@ -86,7 +86,11 @@ export function CompaniesList() {
 export default function CompanySection() {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 mb-10">
-      <h1 className="text-4xl md:text-6xl text-center font-bold mb-8">Companies</h1>
+      {/* <h1 className="text-4xl md:text-6xl text-center font-bold mb-8">Companies</h1> */}
+      <div className="text-center mb-10 mt-8">
+          <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-4">Companies</h2>
+          <div className="w-20 h-1 bg-primary mx-auto" />
+        </div>
       <p className="text-center text-muted-foreground mb-8">The list of companies where our students have placed</p>
       <CompaniesList/>
     </div>

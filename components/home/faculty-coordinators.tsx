@@ -30,7 +30,7 @@ export default function FacultyCoordinators() {
                         alt={coordinator.name}
                         width={192}
                         height={192}
-                        className="w-full h-full object-cover rounded-full"
+                        className="w-full h-full  rounded-full object-fit"
                       />
                     </div>
                   </div>

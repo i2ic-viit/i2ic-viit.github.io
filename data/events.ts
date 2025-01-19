@@ -17,7 +17,7 @@ export const events: Event[] = [
     image: '/events-slider/saturday_club/sat_club.JPG?height=400&width=600',
     backgroundImage: '/events-slider/saturday_club/sat_club_bg.jpg?height=800&width=1200',
     link: '#',
-    date: new Date('2025-01-10'),
+    date: new Date('2025-01-19'),
   },
   {
     id: 2,

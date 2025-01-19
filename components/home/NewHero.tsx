@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Logo from '@/components/logo'
 
 export default function Hero() {
   return (
@@ -7,9 +6,9 @@ export default function Hero() {
       <div className="container px-4 md:px-6 mx-auto">
         <div className="flex flex-col items-center text-center space-y-8">
           {/* Logo */}
-          <div className="relative w-48 h-48 md:w-56 md:h-56">
+          {/* <div className="relative w-48 h-48 md:w-56 md:h-56">
             <Logo height={224} i2ic />
-          </div>
+          </div> */}
           
           {/* Headings */}
           <div className="space-y-4">
@@ -17,7 +16,7 @@ export default function Hero() {
               Industry Institute Interaction Council
             </h1>
             <h2 className="text-sm md:text-2xl lg:text-3xl text-primary">
-              Training And Placement Cell VIT-Kondhawa
+              Training And Placement Cell VIT-Kondhwa
             </h2>
           </div>
 

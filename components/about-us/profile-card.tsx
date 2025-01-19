@@ -4,6 +4,8 @@ import { Linkedin } from 'lucide-react'
 import Link from "next/link"
 import Image from "next/image"
 
+
+
 interface ProfileCardProps {
   name: string
   role: string

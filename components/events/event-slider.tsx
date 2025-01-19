@@ -3,18 +3,28 @@ import Calendar from "./calendar";
 import { Event } from "@/data/events";
 import { isSameDay } from "date-fns";
 import Image from "next/image";
+import { useCallback } from 'react';
+import { useEffect } from "react";
 
 const EventSlider = ({ events }: { events: Event[] }) => {
   const sortedEvents = events.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
   const nextEventIndex = sortedEvents.findIndex(
     (event) => new Date(event.date) > new Date()
   );
-
+  const [attendaceButton, setAttendanceButton] = useState(false);
+  interface userLocation {
+    latitude: number;
+    longitude: number;
+    altitude: number | null;  
+  }
+  
+  const [userLocation, setUserLocation] = useState<userLocation | null>(null);
+  const [eventDate, setEventDate] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState(
     nextEventIndex !== -1 ? nextEventIndex : 0
   );
   const [showDetails, setShowDetails] = useState(false);
-
+  
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex > 0 ? prevIndex - 1 : sortedEvents.length - 1
@@ -44,6 +54,71 @@ const EventSlider = ({ events }: { events: Event[] }) => {
   const truncateText = (text: string, length: number) => {
     return text.length > length ? `${text.substring(0, length)}...` : text;
   };
+
+
+
+  const getUserLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude, altitude } = position.coords;
+          setUserLocation({ latitude, longitude, altitude });
+          console.log("User location fetched:", { latitude, longitude, altitude });
+        },
+        (error) => {
+          console.error("Error getting location:", error.message);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  };
+  
+  const checkLocation = useCallback(() => {
+    if (userLocation) {
+      const targetLocation = {
+        latitude: 18.5204303,
+        longitude: 73.8567437,
+        altitude: 30,
+        tolerance: 0.0001,
+      };
+      const { latitude, longitude } = userLocation;
+      const isAtTarget =
+        Math.abs(latitude - targetLocation.latitude) < targetLocation.tolerance &&
+        Math.abs(longitude - targetLocation.longitude) < targetLocation.tolerance;
+  
+      setAttendanceButton(isAtTarget);
+      console.log(
+        `Location check: isAtTarget=${isAtTarget}`,
+        `User Location: ${JSON.stringify(userLocation)}`,
+        `Target Location: ${JSON.stringify(targetLocation)}`
+      );
+    }
+  }, [userLocation])
+  
+  const isToday = (date: string | null) => {
+    if (!date) return false;
+    const today = new Date();
+    const dateObject = new Date(date);
+    return (
+      dateObject.getDate() === today.getDate() &&
+      dateObject.getMonth() === today.getMonth() &&
+      dateObject.getFullYear() === today.getFullYear()
+    );
+  };
+  useEffect(() => {
+    if (userLocation) {
+      checkLocation();
+    }
+  }, [userLocation, checkLocation]);
+  
+  
+  useEffect(() => {
+    if (isToday(eventDate)) {
+      getUserLocation();
+    }
+  }, [eventDate]);
+  
 
   return (
     <div className="flex flex-col md:flex-row items-start p-5 gap-5">
@@ -90,11 +165,15 @@ const EventSlider = ({ events }: { events: Event[] }) => {
                   {event.description}
                 </p>
                 <button
-                  onClick={() => setShowDetails(true)}
+                  onClick={() => {
+                    setShowDetails(true);
+                    setEventDate(event?.date.toString());
+                  }}
                   className="mt-auto bg-primary text-white px-4 py-2 rounded hover:bg-blue-600"
                 >
                   Learn More
                 </button>
+
               </div>
             </div>
           );
@@ -155,6 +234,12 @@ const EventSlider = ({ events }: { events: Event[] }) => {
                   Register Now
                 </button>
               </a>
+            ) : attendaceButton ? (
+              <a href={currentEvent.link} rel="noopener noreferrer">
+                <button className="px-5 py-2 bg-primary text-white rounded">
+                  Mark Attendance
+                </button>
+              </a>
             ) : (
               <button
                 disabled
@@ -163,6 +248,8 @@ const EventSlider = ({ events }: { events: Event[] }) => {
                 Event Passed
               </button>
             )}
+
+
           </div>
         </div>
       )}

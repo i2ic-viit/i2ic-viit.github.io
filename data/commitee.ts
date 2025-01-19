@@ -31,25 +31,25 @@ const committeeMembers = [
   {
     name: "Chinmay Mhaske",
     role: "President",
-    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    imageUrl: "/images/i2ic-logo.png",
     linkedinUrl: "https://linkedin.com"
   },
   {
     name: "Pratik Mahajan",
     role: "Vice-President",
-    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    imageUrl: "/images/i2ic-logo.png",
     linkedinUrl: "https://linkedin.com"
   },
   {
     name: "Chinmayee Mali",
     role: "Vice-President",
-    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    imageUrl: "/images/i2ic-logo.png",
     linkedinUrl: "https://linkedin.com"
   },
   {
     name: "Om Kulthe",
     role: "Secretary",
-    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    imageUrl: "/images/i2ic-logo.png",
     linkedinUrl: "https://linkedin.com"
   },
   {

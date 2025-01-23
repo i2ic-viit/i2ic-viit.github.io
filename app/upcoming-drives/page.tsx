@@ -1,29 +1,18 @@
 "use client";
 
-import React, { useState } from "react"; // Import React and useState
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/components/ui/table";
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const upcomingDrives = [
     {
-        company: "Google",
+        company: "Accenture",
         role: "Software Engineer",
         package: "35 LPA",
-        skills: "JavaScript, React, Data Structures, Algorithms",
-        pdfLink: "/pdfs/google.pdf",
-    },
-    {
-        company: "Microsoft",
-        role: "Data Scientist",
-        package: "32 LPA",
-        skills: "Python, Machine Learning, SQL, Statistics",
-        pdfLink: "/pdfs/microsoft.pdf",
+        skills: "Java, SQL, Data Structures, Algorithms",
+        pdfLink: "/pdfs/accenture.pdf",
+        logo: "/companies/accenture.svg", // Path to the company's SVG logo
     },
     {
         company: "Amazon",
@@ -31,21 +20,75 @@ const upcomingDrives = [
         package: "30 LPA",
         skills: "AWS, DevOps, Cloud Computing, System Design",
         pdfLink: "/pdfs/amazon.pdf",
+        logo: "/companies/amazon.svg", // Path to the company's SVG logo
     },
     {
-        company: "Tesla",
-        role: "Machine Learning Engineer",
+        company: "BMW",
+        role: "Mechanical Engineer",
         package: "28 LPA",
-        skills: "Python, TensorFlow, Deep Learning, AI",
-        pdfLink: "/pdfs/tesla.pdf",
+        skills: "CAD, Automotive Engineering, MATLAB",
+        pdfLink: "/pdfs/bmw.pdf",
+        logo: "/companies/bmw.svg", // Path to the company's SVG logo
+    },
+    {
+        company: "Mercedes",
+        role: "Automotive Software Engineer",
+        package: "32 LPA",
+        skills: "C++, Embedded Systems, IoT",
+        pdfLink: "/pdfs/mercedes.pdf",
+        logo: "/companies/mercedes-benz.svg", // Path to the company's SVG logo
+    },
+    {
+        company: "MasterCard",
+        role: "Data Scientist",
+        package: "34 LPA",
+        skills: "Python, Machine Learning, Data Analysis",
+        pdfLink: "/pdfs/mastercard.pdf",
+        logo: "/companies/mastercard.svg", // Path to the company's SVG logo
+    },
+    {
+        company: "Microsoft",
+        role: "Software Engineer",
+        package: "36 LPA",
+        skills: "C#, .NET, Cloud Computing",
+        pdfLink: "/pdfs/microsoft.pdf",
+        logo: "/companies/microsoft.svg", // Path to the company's SVG logo
+    },
+    {
+        company: "Oracle",
+        role: "Database Administrator",
+        package: "33 LPA",
+        skills: "SQL, PL/SQL, Database Design",
+        pdfLink: "/pdfs/oracle.pdf",
+        logo: "/companies/oracle.svg", // Path to the company's SVG logo
     },
 ];
 
 const PlacementHome = () => {
-    const [expandedRow, setExpandedRow] = useState<number | null>(null); // State to track the expanded row
-
-    const toggleRow = (index: number) => {
-        setExpandedRow(expandedRow === index ? null : index); // Toggle the expanded row
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1, // Default to 1 slide on smaller screens
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        responsive: [
+            {
+                breakpoint: 1024, // For screen widths less than 1024px
+                settings: {
+                    slidesToShow: 2, // Show 2 slides for tablet/medium screens
+                    slidesToScroll: 2,
+                },
+            },
+            {
+                breakpoint: 768, // For screen widths less than 768px (mobile)
+                settings: {
+                    slidesToShow: 1, // Show 1 slide for mobile screens
+                    slidesToScroll: 1,
+                },
+            },
+        ],
     };
 
     return (
@@ -57,81 +100,47 @@ const PlacementHome = () => {
                 </h1>
             </div>
 
-            {/* Responsive Table with Expandable Rows */}
-            <div className="p-6 font-sans space-y-8">
-                <div className="overflow-x-auto">
-                    <Table className="table-auto w-full min-w-[600px]">
-                        <TableHeader className="bg-secondary">
-                            <TableRow>
-                                <TableHead className="text-foreground">
-                                    Company
-                                </TableHead>
-                                <TableHead className="text-foreground">
-                                    Role
-                                </TableHead>
-                                <TableHead className="text-foreground">
-                                    Package (LPA)
-                                </TableHead>
-                                <TableHead className="text-foreground">
-                                    Actions
-                                </TableHead>
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                            {upcomingDrives.map((drive, index) => (
-                                <React.Fragment key={`${index}-upcoming-drive`}>
-                                    <TableRow
-                                        className="font-semibold text-muted-foreground cursor-pointer"
-                                        onClick={() => toggleRow(index)} // Toggle the row on click
-                                    >
-                                        <TableCell>{drive.company}</TableCell>
-                                        <TableCell>{drive.role}</TableCell>
-                                        <TableCell className="text-green-600">
-                                            {drive.package}
-                                        </TableCell>
-                                        <TableCell className="flex gap-4">
-                                            <button
-                                                onClick={(e) => {
-                                                    e.stopPropagation(); // Prevent row toggle on button click
-                                                    alert(
-                                                        `You applied to ${drive.company}!`
-                                                    );
-                                                }}
-                                                className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-                                            >
-                                                Apply
-                                            </button>
-                                            <a
-                                                href={drive.pdfLink}
-                                                download
-                                                onClick={(e) => e.stopPropagation()} // Prevent row toggle on link click
-                                                className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600"
-                                            >
-                                                Download PDF
-                                            </a>
-                                        </TableCell>
-                                    </TableRow>
-                                    {expandedRow === index && (
-                                        <TableRow>
-                                            <TableCell colSpan={4} className="bg-gray-100">
-                                                <div className="p-4">
-                                                    <p>
-                                                        <strong>Skills:</strong> {drive.skills}
-                                                    </p>
-                                                    <p>
-                                                        <strong>More Info:</strong> Additional details about the drive
-                                                        can go here.
-                                                    </p>
-                                                </div>
-                                            </TableCell>
-                                        </TableRow>
-                                    )}
-                                </React.Fragment>
-                            ))}
-                        </TableBody>
-                    </Table>
-                </div>
-            </div>
+            {/* Carousel for Upcoming Drives */}
+            <Slider {...settings} className="p-6 font-sans space-y-8">
+                {upcomingDrives.map((drive, index) => (
+                    <div
+                        key={`${index}-upcoming-drive`}
+                        className="p-4 rounded shadow flex items-center justify-center"
+                        style={{
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            height: "300px", // Ensure height is set
+                        }}
+                    >
+                        <div className="bg-white bg-opacity-90 p-4 rounded-lg w-full flex flex-col items-center">
+                            <img
+                                src={drive.logo}
+                                alt={`${drive.company} Logo`}
+                                className="w-24 h-24 mb-4"
+                            />
+                            <h2 className="text-xl font-bold mb-2">{drive.company}</h2>
+                            <p><strong>Role:</strong> {drive.role}</p>
+                            <p><strong>Package (LPA):</strong> {drive.package}</p>
+                            <p><strong>Skills:</strong> {drive.skills}</p>
+                            <div className="flex gap-4 mt-4">
+                                <button
+                                    onClick={() => alert(`You applied to ${drive.company}!`)}
+                                    className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                                >
+                                    Apply
+                                </button>
+                                <a
+                                    href={drive.pdfLink}
+                                    download
+                                    className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600"
+                                >
+                                    Download PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </Slider>
         </div>
     );
 };

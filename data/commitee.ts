@@ -16,7 +16,7 @@ const faculty = [
     name: "Mr. Vishwajit Kate Deshmukh",
     role: "Training & Placement Officer",
     quote: "T&P Cell conducts regular aptitude training, GD&PI sessions, and job-oriented courses to improve student competency in placements and competitions.",
-    imageSrc: "/images/committee/faculty/dr_atul_kulkarni.png",
+    imageSrc: "/images/committee/faculty/dr_vishwajit_deshmukh.png",
   },
   {
     name: "Dr. Vishal Ambore",
@@ -31,36 +31,73 @@ const committeeMembers = [
   {
     name: "Chinmay Mhaske",
     role: "President",
-    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    imageUrl: "/images/i2ic-logo.png",
     linkedinUrl: "https://linkedin.com"
   },
   {
     name: "Pratik Mahajan",
     role: "Vice-President",
-    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    imageUrl: "/images/i2ic-logo.png",
     linkedinUrl: "https://linkedin.com"
   },
   {
     name: "Chinmayee Mali",
     role: "Vice-President",
-    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    imageUrl: "/images/i2ic-logo.png",
     linkedinUrl: "https://linkedin.com"
   },
   {
     name: "Om Kulthe",
     role: "Secretary",
+    imageUrl: "/images/i2ic-logo.png",
+    linkedinUrl: "https://linkedin.com"
+  },
+  {
+    name: "Gunjan Kukreja",
+    role: "Treasurer",
     imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
     linkedinUrl: "https://linkedin.com"
   },
   {
-    name: "Dr. Atul P. Kulkarni",
-    role: "Marketing Head",
+    name: "Aman Shaikh",
+    role: "Industry Relations Manager",
     imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
     linkedinUrl: "https://linkedin.com"
   },
   {
-    name: "Dr. Leena A Deshpande",
-    role: "Content Strategist",
+    name: "Pranav Daware",
+    role: "Alumini Relations Manager",
+    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    linkedinUrl: "https://linkedin.com"
+  },
+  {
+    name: "Prasad Kute",
+    role: "Saturday Placement Activity club Head",
+    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    linkedinUrl: "https://linkedin.com"
+  },
+  
+  {
+    name: "Aniket Khandave",
+    role: "Volunteer Management Head",
+    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    linkedinUrl: "https://linkedin.com"
+  },
+  {
+    name: "Kanchan Jaiswal",
+    role: "Human Resources",
+    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    linkedinUrl: "https://linkedin.com"
+  },
+  {
+    name: "Ashish Khenat",
+    role: "Human Resources",
+    imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
+    linkedinUrl: "https://linkedin.com"
+  },
+  {
+    name: "Arya Patne",
+    role: "Ladies Representative",
     imageUrl: "/images/committee/faculty/dr_vishal_ambore.png",
     linkedinUrl: "https://linkedin.com"
   }

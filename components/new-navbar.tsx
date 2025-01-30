@@ -91,7 +91,7 @@ const Navbar = () => {
                             >
                                 <Link
                                     href={link.href}
-                                    className="relative text-sm font-medium text-muted-foreground group px-4 py-2"
+                                    className="relative text-md font-medium text-muted-foreground group px-4 py-2"
                                 >
                                     {link.text}
                                     <span className="absolute left-4 bottom-2 w-0 h-px bg-foreground group-hover:w-[calc(100%-2rem)] transition-all duration-300" />

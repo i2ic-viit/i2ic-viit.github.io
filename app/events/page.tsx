@@ -2,6 +2,7 @@
 import EventSlider from "@/components/events/event-slider";
 import HeroImage from "@/components/HeroImage";
 import GallerySlider from "@/components/events/Gallary-slider"
+import { Testimonial } from "@/components/events/testimonials-carousel";
 import { events } from "@/data/events"; 
 export default function Events() {
   return (
@@ -13,6 +14,7 @@ export default function Events() {
       <div style={{ position: "relative" }}>
         <GallerySlider />
       </div>
+        <Testimonial />
     </div>
   );
 }

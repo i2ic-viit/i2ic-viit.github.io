@@ -1,15 +1,21 @@
 import Image from 'next/image'
 import Logo from '@/components/logo'
+import EmblaCarousel from "@/components/home/hero-caroursel"
+import { EmblaOptionsType } from "embla-carousel"
+
+const OPTIONS: EmblaOptionsType = { loop: true }
+const SLIDE_COUNT = 5
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
 export default function Hero() {
   return (
-    <section className="w-full py-12 md:py-16 lg:py-20">
+    <section className="w-full py-12 md:py-16 lg:py-12">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="flex flex-col items-center text-center space-y-8">
           {/* Logo */}
-          <div className="relative w-48 h-48 md:w-56 md:h-56">
+          {/* <div className="relative w-48 h-48 md:w-56 md:h-56">
             <Logo height={224} i2ic />
-          </div>
+          </div> */}
           
           {/* Headings */}
           <div className="space-y-4">
@@ -21,8 +27,9 @@ export default function Hero() {
             </h2>
           </div>
 
+          <EmblaCarousel slides={SLIDES} options={OPTIONS}/>
           {/* Placeholder Image */}
-          <div className="w-full max-w-5xl mt-8">
+          {/* <div className="w-full max-w-5xl mt-8">
             <div className="aspect-[16/9] bg-gray-200 rounded-lg overflow-hidden">
               <Image
                 src="/images/hero.jpg"
@@ -32,7 +39,7 @@ export default function Hero() {
                 className="w-full h-full object-cover"
               />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

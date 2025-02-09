@@ -104,14 +104,14 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     }, [emblaApi, tweenOpacity, setTweenFactor]);
 
     return (
-        <div className="embla max-w-5xl relative">
+        <div className="embla relative w-full">
             <div className="embla__viewport" ref={emblaRef}>
                 <div className="embla__container">
                     {slides.map((index) => (
-                        <div className="embla__slide" key={index}>
+                        <div className="embla__slide w-full" key={index}>
                             <div className="relative w-full h-[350px]">
                                 <Image
-                                    className="embla__slide__img"
+                                    className="embla__slide__img w-full h-full object-cover"
                                     src={`https://picsum.photos/600/350?v=${index}`}
                                     alt="Carousel image"
                                     fill

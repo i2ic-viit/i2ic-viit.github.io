@@ -1,52 +1,47 @@
-'use client'
+// 'use client'
 
-import Link from 'next/link'
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
-import { ArrowRight } from 'lucide-react'
+import EmblaCarousel from "@/components/home/hero-caroursel"
+import { EmblaOptionsType } from "embla-carousel"
 
-export default function HeroSection() {
+const OPTIONS: EmblaOptionsType = { loop: true }
+const SLIDE_COUNT = 5
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
+
+export default function Hero() {
   return (
-    <div className="relative flex min-h-[50vh] h-[calc(100vh-64px)] md:h-[50vh] flex-col items-center justify-center px-4 py-12 text-center md:px-6 lg:px-8">
-      <Image
-          src={"/images/hero.jpg"}
-          alt="Students and Industry"
-          fill
-          className="object-cover"
-          priority
-      />
-      <div className="absolute inset-0 bg-black/50" />     
-      {/* <div className="absolute inset-0 bg-white/50" />      */}
-      
-      {/* <h1 className="max-w-4xl font-bold tracking-tight text-sm sm:text-2xl md:text-4xl z-10 text-secondary">
-        <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-purple-300 bg-clip-text text-transparent text-3xl sm:text-5xl md:text-7xl mb-2">Empowering Students: </span> <br /> Connecting Education 
-        with Industry for Success
-      </h1> */}
-      <div className="max-w-4xl font-bold tracking-tight text-sm z-10 text-secondary sm:text-2xl md:text-4xl flex flex-col">
+    <section className="w-full py-12 md:py-16 lg:py-12">
+      <div className="container px-4 md:px-6 mx-auto">
+        <div className="flex flex-col items-center text-center space-y-8">
+          {/* Logo */}
+          {/* <div className="relative w-48 h-48 md:w-56 md:h-56">
+            <Logo height={224} i2ic />
+          </div> */}
+          
+          {/* Headings */}
+          <div className="space-y-4">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-foreground">
+              Industry Institute Interaction Council
+            </h1>
+            <h2 className="text-sm md:text-2xl lg:text-3xl text-primary">
+              Training And Placement Cell VIT-Kondhawa
+            </h2>
+          </div>
 
-        <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-purple-300 bg-clip-text text-transparent text-3xl sm:text-5xl md:text-7xl pb-2">Empowering Students: </span> 
-        <span>
-          Connecting Education with Industry for Success
-        </span>
-
+          <EmblaCarousel slides={SLIDES} options={OPTIONS}/>
+          {/* Placeholder Image */}
+          {/* <div className="w-full max-w-5xl mt-8">
+            <div className="aspect-[16/9] bg-gray-200 rounded-lg overflow-hidden">
+              <Image
+                src="/images/hero.jpg"
+                alt="Hero Image"
+                width={1920}
+                height={1080}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div> */}
+        </div>
       </div>
-
-      <div className="mt-8 flex flex-col md:flex-row items-center gap-4 z-10">
-        <Button size="lg" asChild>
-          <Link href="/upcomming-drives">
-            Upcomming Drives
-          </Link>
-        </Button>
-        <Button variant="ghost" className="text-white" asChild>
-          <Link href="#contact" className="flex items-center gap-2">
-            Contact Us
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </Button>
-      </div>
-
-    </div>
+    </section>
   )
 }
-
-

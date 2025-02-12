@@ -8,7 +8,7 @@ export default function Events() {
   return (
     <div>
       <HeroImage title="Events"
-        imageSrc="https://www.solidbackgrounds.com/images/1600x900/1600x900-dark-blue-solid-color-background.jpg" 
+        imageSrc="/events-slider/resume_building _sessions/res_build.jpg" 
         altText="Events Hero Image"/>
       <EventSlider events={events}/>
       <div style={{ position: "relative" }}>
